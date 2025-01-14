@@ -1,4 +1,4 @@
-##👋 Hi, I’m PRINCE PATEL
+👋 Hi, I’m PRINCE PATEL
 - 👀 I’m interested in JAVA, Cyber security👨‍💻 and Cloud Computing 🖥 
 - 🌱 I’m currently learning DBMS and Design Pattern 
 - 📫 How to reach me www.linkedin.com/in/prince-patel-844625282
