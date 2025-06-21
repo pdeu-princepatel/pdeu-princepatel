@@ -4,6 +4,7 @@
 - 📫 How to reach me www.linkedin.com/in/prince-patel-844625282
 - 😄 Hobbies : Sketching✏️ and Visualize Ideas🤔
 - ⚡ Fun fact: Visualize helps understand!🧠
+![GitHub Contributor](https://img.shields.io/badge/Contributed%20to-PyShell-blue?style=for-the-badge&logo=github)
 
 <!---
 pdeu-princepatel/pdeu-princepatel is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
