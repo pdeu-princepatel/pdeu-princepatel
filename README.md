@@ -1,6 +1,6 @@
 👋 Hi, I’m PRINCE PATEL
-- 👀 I’m interested in GO, Human Computer Interactions and Data Science 🖥 
-- 🌱 I’m currently learning DBMS and Design Pattern 
+- 👀 I’m interested in GOland, Human Computer Interactions and Data Science 🖥 
+- 🌱 I’m currently learning Distributed Caching..
 - 📫 How to reach me www.linkedin.com/in/prince-patel-844625282
 - 😄 Hobbies : Sketching✏️ and Visualize Ideas🤔
 - ⚡ Fun fact: Visualize helps understand!🧠
