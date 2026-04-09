@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Prince Patel</h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?size=25&duration=3000&color=00F7FF&center=true&vCenter=true&width=600&lines=Backend+Developer;Problem+Solver;Future+Data+Scientist" />
+  <img src="https://readme-typing-svg.herokuapp.com?size=25&duration=3000&color=00F7FF&center=true&vCenter=true&width=600&lines=Backend+Developer;Problem+Solver;Engineer" />
 </p>
 
 <p align="center">
@@ -29,9 +29,9 @@
 
 ## 📊 GitHub Stats
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=pdeu-princepatel&show_icons=true&theme=tokyonight" />
-</p>
+</p> -->
 
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=pdeu-princepatel&theme=tokyonight" />
