@@ -1,7 +1,6 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/448132da-08a6-4757-96f0-b2cf1570a2c1"/>
 </p>
-![Profile Views](https://komarev.com/ghpvc/?username=pdeu-princepatel&color=blue)
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?size=25&duration=3000&color=00F7FF&center=true&vCenter=true&width=600&lines=Hi+I'm+Prince+Patel;Backend+Developer;Problem+Solver"/>
 </p>
