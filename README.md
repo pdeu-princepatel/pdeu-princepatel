@@ -1,4 +1,9 @@
-![Recording 2026-04-10 005717](https://github.com/user-attachments/assets/e59c0e0a-0cca-416e-8f8b-e5fc751fc9f8)
+<p align="center">
+  <video src="[assets/demo.mp4](https://github.com/user-attachments/assets/cb860002-8a21-4909-83d6-9d198d696900
+
+
+)" width="900" autoplay loop muted></video>
+</p>
 - 👀 I’m interested in GOland, Human Computer Interactions and Data Science 🖥 
 - 🌱 I’m currently learning Distributed Caching..
 - 📫 How to reach me www.linkedin.com/in/prince-patel-844625282
