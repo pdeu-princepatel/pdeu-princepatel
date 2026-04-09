@@ -1,4 +1,7 @@
-👋 Hi, I’m PRINCE PATEL
+
+<p align="center">
+  <video src="![Recording 2026-04-10 005717](https://github.com/user-attachments/assets/2fe6670e-9e4c-4dae-80d5-e78aa317c8e0)" width="900" autoplay loop muted></video>
+</p>
 - 👀 I’m interested in GOland, Human Computer Interactions and Data Science 🖥 
 - 🌱 I’m currently learning Distributed Caching..
 - 📫 How to reach me www.linkedin.com/in/prince-patel-844625282
