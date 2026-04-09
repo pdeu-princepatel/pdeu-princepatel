@@ -1,5 +1,6 @@
-
-![Video Project 3 (1)](https://github.com/user-attachments/assets/24bd55c1-9fe5-483f-bfa0-3445b742bf85)
+<p align="center">
+  ![Video Project 3 (1)](https://github.com/user-attachments/assets/24bd55c1-9fe5-483f-bfa0-3445b742bf85)
+</p>
 
 - 👀 I’m interested in GOland, Human Computer Interactions and Data Science 🖥 
 - 🌱 I’m currently learning Distributed Caching..
