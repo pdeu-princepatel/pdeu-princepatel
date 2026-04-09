@@ -4,10 +4,12 @@
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?size=25&duration=3000&color=00F7FF&center=true&vCenter=true&width=600&lines=Hi+I'm+Prince+Patel;Backend+Developer;Problem+Solver"/>
 </p>
+<p>
 - 👀 I’m interested in GOland, Human Computer Interactions and Data Science 🖥 
 - 🌱 I’m currently learning Distributed Caching..
 - 😄 Hobbies : Sketching✏️ and Visualize Ideas🤔
 - ⚡ Fun fact: Visualize helps understand!🧠
+</p>
 ### 🛠️ Tech Stack
 <p align="center">
   <img src="https://skillicons.dev/icons?i=java,python,react,nodejs,docker,git" />
