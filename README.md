@@ -6,12 +6,11 @@
 </p>
 - 👀 I’m interested in GOland, Human Computer Interactions and Data Science 🖥 
 - 🌱 I’m currently learning Distributed Caching..
-- 📫 How to reach me www.linkedin.com/in/prince-patel-844625282
 - 😄 Hobbies : Sketching✏️ and Visualize Ideas🤔
 - ⚡ Fun fact: Visualize helps understand!🧠
 ### 🛠️ Tech Stack
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=java,python,react,nodejs,Go,pandas,numpy,docker,git" />
+  <img src="https://skillicons.dev/icons?i=java,python,react,nodejs,docker,git" />
 </p>
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=pdeu-princepatel&show_icons=true&theme=tokyonight" />
