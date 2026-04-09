@@ -1,6 +1,7 @@
 <p align="center">
-  <video src="[assets/demo.mp4](https://github.com/user-attachments/assets/cb860002-8a21-4909-83d6-9d198d696900)" width="900" autoplay loop muted></video>
+  https://github.com/user-attachments/assets/cb860002-8a21-4909-83d6-9d198d696900
 </p>
+
 - 👀 I’m interested in GOland, Human Computer Interactions and Data Science 🖥 
 - 🌱 I’m currently learning Distributed Caching..
 - 📫 How to reach me www.linkedin.com/in/prince-patel-844625282
