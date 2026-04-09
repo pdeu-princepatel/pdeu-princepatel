@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/448132da-08a6-4757-96f0-b2cf1570a2c1" width="900"/>
+  <img src="https://github.com/user-attachments/assets/448132da-08a6-4757-96f0-b2cf1570a2c1"/>
 </p>
 
 - 👀 I’m interested in GOland, Human Computer Interactions and Data Science 🖥 
