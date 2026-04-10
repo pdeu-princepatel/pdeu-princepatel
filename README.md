@@ -56,15 +56,4 @@
 </p>
 
 ---
-<h2 align="center">📊 GitHub Stats</h2>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=pdeu-princepatel&show_icons=true&theme=tokyonight&hide_border=true" height="180"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pdeu-princepatel&layout=compact&theme=tokyonight" height="180"/>
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=pdeu-princepatel&theme=tokyonight&hide_border=true" />
-</p>
----
 ![Profile Views](https://komarev.com/ghpvc/?username=pdeu-princepatel&color=blue)
