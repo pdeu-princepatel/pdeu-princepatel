@@ -58,3 +58,4 @@
 ---
 
 ![Profile Views](https://komarev.com/ghpvc/?username=pdeu-princepatel&color=blue)
+![Prince's GitHub stats](https://github-readme-stats.vercel.app/api?username=pdeu-princepatel&hide=contribs,prs)
