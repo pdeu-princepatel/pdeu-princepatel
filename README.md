@@ -6,7 +6,7 @@
 
 ---
 
-## 👨‍💻 About Me
+##  About Me
 
 <p align="center">
   <img src="./prince_config_diagnostics.svg" alt="Prince Patel — Profile & Diagnostics" width="850" />
