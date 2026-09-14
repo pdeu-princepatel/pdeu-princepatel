@@ -1,3 +1,4 @@
+
 // Fetches the public GitHub contribution calendar for a user and renders it
 // as an animated SVG: each square drops down and fades out at the bottom,
 // pauses, then drops in from the top back into its original spot — looping.
@@ -20,7 +21,7 @@ const DROP_DISTANCE = 46; // how far squares fall before vanishing
 
 // GitHub's contribution colors, level 0-4
 const LIGHT_COLORS = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"];
-const DARK_COLORS  = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"];
+const DARK_COLORS = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"];
 
 async function main() {
   const res = await fetch(`https://github.com/users/${USERNAME}/contributions`, {
