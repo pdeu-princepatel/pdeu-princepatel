@@ -61,7 +61,7 @@ def convert_face_to_bulletproof_svg(
     face_w = int(img_w * scale)
     face_h = int(img_h * scale)
 
-    # Resize both layers to identical dimensions for seamless morph alignment
+    # Resize both layers to identical dimensions for seamless alignment
     a_resized = cv2.resize(a_cropped, (face_w, face_h), interpolation=cv2.INTER_LANCZOS4)
     r_resized = cv2.resize(r_cropped, (face_w, face_h), interpolation=cv2.INTER_LANCZOS4)
 
@@ -83,6 +83,11 @@ def convert_face_to_bulletproof_svg(
     face_x = 485 + (box_w - face_w) // 2
     face_y = 50 + (box_h - face_h) // 2
 
+    # Diagonal reveal geometry calculation
+    cx = face_x + face_w / 2.0
+    cy = face_y + face_h / 2.0
+    angle_deg = np.degrees(np.arctan2(face_h, face_w))
+
     # 2. Design system theme layout color parameters (User's exact original styling)
     json_key = "#38bdf8"
     json_val = "#fbbf24"
@@ -95,31 +100,38 @@ def convert_face_to_bulletproof_svg(
     # Standard W3C SVG namespace
     parts.append('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="850" height="380" viewBox="0 0 850 380">')
     parts.append('  <title>Prince Patel — Custom Portrait Profile</title>')
+    parts.append('  <defs>')
+    parts.append('    <!-- Diagonal Wipe Reveal: Starts at top-left corner (-215) and sweeps to bottom-right (+215) after 1s, staying revealed -->')
+    parts.append('    <clipPath id="diagonalRevealClip">')
+    parts.append(f'      <g transform="translate({cx:.2f}, {cy:.2f}) rotate({angle_deg:.2f})">')
+    parts.append('        <rect class="reveal-wipe" x="-800" y="-400" width="800" height="800" transform="translate(-215, 0)">')
+    parts.append('          <animateTransform')
+    parts.append('            attributeName="transform"')
+    parts.append('            type="translate"')
+    parts.append('            from="-215 0"')
+    parts.append('            to="215 0"')
+    parts.append('            begin="1s"')
+    parts.append('            dur="1.4s"')
+    parts.append('            fill="freeze"')
+    parts.append('            calcMode="spline"')
+    parts.append('            keySplines="0.25 0.1 0.25 1"')
+    parts.append('          />')
+    parts.append('        </rect>')
+    parts.append('      </g>')
+    parts.append('    </clipPath>')
+    parts.append('  </defs>')
+
     parts.append('  <style>')
     parts.append('    text { font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace; font-weight: 700; }')
     parts.append(f'    .key {{ fill: {json_key}; }} .val {{ fill: {json_val}; }} .str {{ fill: {json_str}; }}')
     parts.append(f'    .dim {{ fill: {text_dim}; }} .mid {{ fill: {text_mid}; }} .bright {{ fill: {text_green}; }}')
-    parts.append('    .ascii-face { animation: asciiCycle 8s ease-in-out infinite; }')
-    parts.append('    .real-face  { animation: realCycle 8s ease-in-out infinite; }')
-    parts.append('    .scan-beam  { animation: beamSweep 8s ease-in-out infinite; }')
-    parts.append('    @keyframes asciiCycle {')
-    parts.append('      0%, 55%   { opacity: 1; }')
-    parts.append('      65%, 85%  { opacity: 0; }')
-    parts.append('      93%, 100% { opacity: 1; }')
+    parts.append('    .reveal-wipe {')
+    parts.append('      transform: translateX(-215px);')
+    parts.append('      animation: wipeDiagonal 1.4s cubic-bezier(0.25, 0.1, 0.25, 1) 1s forwards;')
     parts.append('    }')
-    parts.append('    @keyframes realCycle {')
-    parts.append('      0%, 55%   { opacity: 0; }')
-    parts.append('      65%, 85%  { opacity: 1; }')
-    parts.append('      93%, 100% { opacity: 0; }')
-    parts.append('    }')
-    parts.append('    @keyframes beamSweep {')
-    parts.append('      0%, 54%    { opacity: 0; transform: translateY(0); }')
-    parts.append('      56%        { opacity: 0.95; transform: translateY(0); }')
-    parts.append(f'      66%        {{ opacity: 0.95; transform: translateY({face_h}px); }}')
-    parts.append(f'      68%, 84%   {{ opacity: 0; transform: translateY({face_h}px); }}')
-    parts.append(f'      86%        {{ opacity: 0.95; transform: translateY({face_h}px); }}')
-    parts.append('      94%        { opacity: 0.95; transform: translateY(0); }')
-    parts.append('      96%, 100%  { opacity: 0; transform: translateY(0); }')
+    parts.append('    @keyframes wipeDiagonal {')
+    parts.append('      0%   { transform: translateX(-215px); }')
+    parts.append('      100% { transform: translateX(215px); }')
     parts.append('    }')
     parts.append('  </style>')
 
@@ -153,14 +165,12 @@ def convert_face_to_bulletproof_svg(
     parts.append('  <line x1="455" y1="15" x2="455" y2="365" stroke="#1e293b" stroke-dasharray="4 4" stroke-width="1.5"/>')
     parts.append('  <text x="475" y="32" font-size="11" class="bright" letter-spacing="1">USER_PROFILE_MATRIX // IMAGE_MATRIX_RENDER</text>')
 
-    # 3. Right Side Face Render Section: ASCII + Real Face with Laser Scan Transition
-    parts.append(f'  <g id="portrait-group">')
-    # Layer 1: ASCII Face
-    parts.append(f'    <image class="ascii-face" href="data:image/png;base64,{encoded_ascii}" x="{face_x}" y="{face_y}" width="{face_w}" height="{face_h}" />')
-    # Layer 2: Real Photographic Cutout
-    parts.append(f'    <image class="real-face" href="data:image/png;base64,{encoded_real}" x="{face_x}" y="{face_y}" width="{face_w}" height="{face_h}" />')
-    # Layer 3: Cyan/Emerald Laser Scan Beam Sweep
-    parts.append(f'    <line class="scan-beam" x1="{face_x}" y1="{face_y}" x2="{face_x + face_w}" y2="{face_y}" stroke="#00ff9c" stroke-width="2" stroke-linecap="round" />')
+    # 3. Right Side Face Render Section: ASCII base with Diagonal Reveal of Real Face
+    parts.append('  <g id="portrait-group">')
+    # Layer 1: ASCII Face (visible on load)
+    parts.append(f'    <image href="data:image/png;base64,{encoded_ascii}" x="{face_x}" y="{face_y}" width="{face_w}" height="{face_h}" />')
+    # Layer 2: Real Photographic Cutout, diagonally revealed from top-left to bottom-right after 1 sec
+    parts.append(f'    <image clip-path="url(#diagonalRevealClip)" href="data:image/png;base64,{encoded_real}" x="{face_x}" y="{face_y}" width="{face_w}" height="{face_h}" />')
     parts.append('  </g>')
 
     # Telemetry Status Bar Footer Metrics Box
@@ -170,7 +180,7 @@ def convert_face_to_bulletproof_svg(
     parts.append('</svg>')
 
     Path(output_path).write_text("\n".join(parts), encoding="utf-8")
-    print(f"Success! Terminal SVG with seamless ASCII-to-Photo transition generated at: {Path(output_path).resolve()}")
+    print(f"Success! Terminal SVG with diagonal reveal generated at: {Path(output_path).resolve()}")
 
 if __name__ == "__main__":
     convert_face_to_bulletproof_svg("ascii_face.png", "my_face.png", "prince_config_diagnostics.svg")

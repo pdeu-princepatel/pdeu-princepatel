@@ -20,10 +20,6 @@
   <img src="https://raw.githubusercontent.com/pdeu-princepatel/pdeu-princepatel/output/contribution-drop.svg" alt="contribution drop animation" />
 </p>
 
----
-![Profile Views](https://komarev.com/ghpvc/?username=pdeu-princepatel&color=blue)
----
-
 ##  Connect with Me
 
 <p align="center">
@@ -32,4 +28,5 @@
   </a>
 </p>
 
+![Profile Views](https://komarev.com/ghpvc/?username=pdeu-princepatel&color=blue)
 ---
