@@ -1,6 +1,12 @@
 name: generate contribution drop animation
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/**"
+      - ".github/workflows/contribution-drop.yml"
   schedule:
     - cron: "0 0 * * *"   # once a day
   workflow_dispatch:
