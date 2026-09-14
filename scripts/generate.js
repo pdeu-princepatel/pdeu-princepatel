@@ -53,7 +53,18 @@ async function main() {
   const height = MARGIN_TOP + 7 * CELL + 10;
   const totalCycle = 6; // seconds for one full loop
 
-  const rects = cells
+  // 1. Base layer: All static grid boxes rendered first (underneath everything)
+  const baseRects = cells
+    .map((c) => {
+      const x = MARGIN_LEFT + c.col * CELL;
+      const y = MARGIN_TOP + c.row * CELL;
+      return `<rect x="${x}" y="${y}" width="${SIZE}" height="${SIZE}" rx="${RADIUS}" ry="${RADIUS}" fill="${DARK_COLORS[0]}" class="lvl-0"><title>${c.date}: level ${c.level}</title></rect>`;
+    })
+    .join("\n    ");
+
+  // 2. Foreground layer: Only animated green squares rendered on top
+  const activeRects = cells
+    .filter((c) => c.level > 0)
     .map((c) => {
       const x = MARGIN_LEFT + c.col * CELL;
       const y = MARGIN_TOP + c.row * CELL;
@@ -65,19 +76,19 @@ async function main() {
   const svg = `<svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
   <style>
     :root {
-      --color-0: ${LIGHT_COLORS[0]};
-      --color-1: ${LIGHT_COLORS[1]};
-      --color-2: ${LIGHT_COLORS[2]};
-      --color-3: ${LIGHT_COLORS[3]};
-      --color-4: ${LIGHT_COLORS[4]};
+      --color-0: ${DARK_COLORS[0]};
+      --color-1: ${DARK_COLORS[1]};
+      --color-2: ${DARK_COLORS[2]};
+      --color-3: ${DARK_COLORS[3]};
+      --color-4: ${DARK_COLORS[4]};
     }
-    @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: light) {
       :root {
-        --color-0: ${DARK_COLORS[0]};
-        --color-1: ${DARK_COLORS[1]};
-        --color-2: ${DARK_COLORS[2]};
-        --color-3: ${DARK_COLORS[3]};
-        --color-4: ${DARK_COLORS[4]};
+        --color-0: ${LIGHT_COLORS[0]};
+        --color-1: ${LIGHT_COLORS[1]};
+        --color-2: ${LIGHT_COLORS[2]};
+        --color-3: ${LIGHT_COLORS[3]};
+        --color-4: ${LIGHT_COLORS[4]};
       }
     }
     .cell {
@@ -104,8 +115,11 @@ async function main() {
       100% { transform: translateY(0); opacity: 1; }
     }
   </style>
-  <g>
-    ${rects}
+  <g id="base-grid">
+    ${baseRects}
+  </g>
+  <g id="active-cells">
+    ${activeRects}
   </g>
 </svg>
 `;
