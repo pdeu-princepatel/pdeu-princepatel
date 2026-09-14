@@ -6,17 +6,23 @@
 
 ---
 
-##  About Me
+## 👨‍💻 About Me
 
--  I’m interested in **Golang, Human-Computer Interaction (HCI), and Data Science**   
--  I’m currently learning **Distributed Caching**  
--  Hobbies: **Sketching & Visualizing Ideas**  
--  Fun fact: **Visualization helps understanding!**
+<p align="center">
+  <img src="./prince_config_diagnostics.svg" alt="Prince Patel — Profile & Diagnostics" width="850" />
+</p>
 
 ---
 
+##  Contribution
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pdeu-princepatel/pdeu-princepatel/output/contribution-drop.svg" alt="contribution drop animation" />
+</p>
 
+---
+![Profile Views](https://komarev.com/ghpvc/?username=pdeu-princepatel&color=blue)
+---
 
 ##  Connect with Me
 
@@ -27,15 +33,3 @@
 </p>
 
 ---
-
-##  Contribution
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/pdeu-princepatel/pdeu-princepatel/output/contribution-drop.svg" alt="contribution drop animation" />
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/Contributed%20to-PyShell-blue?style=for-the-badge&logo=github" />
-</p>
-
----
-![Profile Views](https://komarev.com/ghpvc/?username=pdeu-princepatel&color=blue)
