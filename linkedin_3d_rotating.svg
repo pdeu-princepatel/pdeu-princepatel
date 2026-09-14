@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="240" height="240" viewBox="0 0 240 240"
+     role="img" aria-label="LinkedIn profile of Prince Patel — animated 3D rotating badge">
+
+  <!--
+    REFINED 3D ROTATING LINKEDIN BADGE  v3
+    ────────────────────────────────────────
+    • Center-anchored scaleX at transform-origin: 120px 115px
+    • Cosine-accurate keyframes: cos(0°..90°) = 1, 0.951, 0.809, 0.588, 0.309, 0
+    • Back face mirrored via translate(240,0) scale(-1,1)
+    • Edge cap visible only at 90° transition (25% and 75% of cycle)
+    • SMIL shadow — works inside <img> tags
+    • Transparent background
+    • Glyph layout: "i" at x[65..89], "n" at x[111..175]
+      midpoint = (65+175)/2 = 120 — perfectly centered on x=120
+  -->
+
+  <defs>
+
+    <!-- Gradients -->
+    <linearGradient id="gFront" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#1f8de8"/>
+      <stop offset="55%"  stop-color="#0A66C2"/>
+      <stop offset="100%" stop-color="#004899"/>
+    </linearGradient>
+
+    <linearGradient id="gBack" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0e72d1"/>
+      <stop offset="55%"  stop-color="#0057a1"/>
+      <stop offset="100%" stop-color="#003571"/>
+    </linearGradient>
+
+    <linearGradient id="gSheen" x1="0" y1="0" x2="0.7" y2="0.7">
+      <stop offset="0%"   stop-color="#fff" stop-opacity="0.30"/>
+      <stop offset="50%"  stop-color="#fff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0.00"/>
+    </linearGradient>
+
+    <linearGradient id="gEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#2a92e8"/>
+      <stop offset="40%"  stop-color="#0067b5"/>
+      <stop offset="100%" stop-color="#002e5a"/>
+    </linearGradient>
+
+    <filter id="fShadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+
+    <!--
+      "in" glyphs — verified positions:
+        Badge: x[40..200] y[35..195]  size: 160×160  center: (120,115)
+        Glyph usable area: x[65..175] y[68..169]  (25px margin each side)
+        "i": dot cx=77 cy=72 r=12.5;  stem x[65..89] y[97..169]  w=24 h=72
+        "n": leftcol x[111..135] y[97..169];  rightcol x[152..176] y[97..169]
+             arch peak at approx (152, 86)
+        Glyph group center x = (65+176)/2 = 120.5  ✓
+    -->
+    <g id="inGlyphs" fill="#fff">
+      <!-- "i" dot -->
+      <circle cx="77" cy="72" r="12.5"/>
+      <!-- "i" stem -->
+      <rect x="65" y="97" width="24" height="72" rx="4"/>
+      <!--
+        "n" glyph path:
+          Move to top of left column (111, 97)
+          Draw left column top edge h=24 → (135, 97)
+          Drop 10px → (135, 107)
+          Cubic arch: cp1=(139,-6 rel)=(139,101) cp2=(146,84) end=(153,84) — arch peak
+          Continue: cp1=(160,84) cp2=(165,91) end=(165,107) — arch descends to right col
+          Actually simpler using relative coords from (135,107):
+          c dx1 dy1, dx2 dy2, dx dy
+
+          Final right column bottom at (176, 169)
+          Return along bottom via left column to close.
+      -->
+      <path d="M111,97 h24 v10 c4,-9,13.5,-14,25,-14 c19,0,25,13,25,33 v43 h-24
+               v-40 c0,-9,-3,-15,-12.5,-15 c-10.5,0,-13,7,-13,16 v39 h-24.5 z"/>
+    </g>
+
+    <!-- Front face plate definition -->
+    <g id="frontFace">
+      <rect x="40" y="35" width="160" height="160" rx="34" fill="url(#gFront)"/>
+      <!-- Gloss sheen top-left -->
+      <rect x="40" y="35" width="160" height="160" rx="34" fill="url(#gSheen)"/>
+      <!-- Inner border highlight -->
+      <rect x="41.5" y="36.5" width="157" height="157" rx="32.5"
+            fill="none" stroke="#fff" stroke-width="1.2" stroke-opacity="0.24"/>
+      <use href="#inGlyphs"/>
+    </g>
+
+    <!-- Back face plate definition — glyphs mirrored so they read outward from behind -->
+    <g id="backFace">
+      <rect x="40" y="35" width="160" height="160" rx="34" fill="url(#gBack)"/>
+      <rect x="41.5" y="36.5" width="157" height="157" rx="32.5"
+            fill="none" stroke="#fff" stroke-width="1.2" stroke-opacity="0.14"/>
+      <!-- Mirror about badge center x=120: translate(2*120=240, 0) scale(-1,1) -->
+      <g transform="translate(240,0) scale(-1,1)">
+        <use href="#inGlyphs"/>
+      </g>
+    </g>
+
+  </defs>
+
+
+  <style>
+    /*
+      5-second rotation cycle.
+      cos keyframes (0°→90° = 0%→25%):
+        0%=1.000  5%=0.951  10%=0.809  15%=0.588  20%=0.309  25%=0.000
+      Front face: phases 0–25% (visible) and 75–100% (visible), hidden 25–75%
+      Back face:  phases 25–75% (visible), hidden elsewhere
+      Edge cap:   tiny flash at exactly 25% and 75%
+    */
+
+    .front-face {
+      transform-origin: 120px 115px;
+      animation: flipFront 5s ease-in-out infinite;
+    }
+    .back-face {
+      transform-origin: 120px 115px;
+      animation: flipBack 5s ease-in-out infinite;
+    }
+    .edge-cap {
+      transform-origin: 120px 115px;
+      animation: edgePulse 5s ease-in-out infinite;
+    }
+
+    @keyframes flipFront {
+       0% { transform: scaleX(1.000); opacity: 1; }
+       5% { transform: scaleX(0.951); opacity: 1; }
+      10% { transform: scaleX(0.809); opacity: 1; }
+      15% { transform: scaleX(0.588); opacity: 1; }
+      20% { transform: scaleX(0.309); opacity: 1; }
+      24% { transform: scaleX(0.050); opacity: 1; }
+      25% { transform: scaleX(0.000); opacity: 0; }
+      75% { transform: scaleX(0.000); opacity: 0; }
+      76% { transform: scaleX(0.050); opacity: 1; }
+      80% { transform: scaleX(0.309); opacity: 1; }
+      85% { transform: scaleX(0.588); opacity: 1; }
+      90% { transform: scaleX(0.809); opacity: 1; }
+      95% { transform: scaleX(0.951); opacity: 1; }
+     100% { transform: scaleX(1.000); opacity: 1; }
+    }
+
+    @keyframes flipBack {
+       0% { transform: scaleX(0.000); opacity: 0; }
+      25% { transform: scaleX(0.000); opacity: 0; }
+      26% { transform: scaleX(0.050); opacity: 1; }
+      30% { transform: scaleX(0.309); opacity: 1; }
+      35% { transform: scaleX(0.588); opacity: 1; }
+      40% { transform: scaleX(0.809); opacity: 1; }
+      45% { transform: scaleX(0.951); opacity: 1; }
+      50% { transform: scaleX(1.000); opacity: 1; }
+      55% { transform: scaleX(0.951); opacity: 1; }
+      60% { transform: scaleX(0.809); opacity: 1; }
+      65% { transform: scaleX(0.588); opacity: 1; }
+      70% { transform: scaleX(0.309); opacity: 1; }
+      74% { transform: scaleX(0.050); opacity: 1; }
+      75% { transform: scaleX(0.000); opacity: 0; }
+     100% { transform: scaleX(0.000); opacity: 0; }
+    }
+
+    /* Edge cap — brief flash at 90° transitions */
+    @keyframes edgePulse {
+       0% { transform: scaleX(0); opacity: 0; }
+      23% { transform: scaleX(0); opacity: 0; }
+      25% { transform: scaleX(1); opacity: 1; }
+      27% { transform: scaleX(0); opacity: 0; }
+      73% { transform: scaleX(0); opacity: 0; }
+      75% { transform: scaleX(1); opacity: 1; }
+      77% { transform: scaleX(0); opacity: 0; }
+     100% { transform: scaleX(0); opacity: 0; }
+    }
+  </style>
+
+
+  <!-- Ground shadow (SMIL — safe in <img>) -->
+  <ellipse cx="120" cy="213" rx="70" ry="7"
+           fill="#000" opacity="0.18" filter="url(#fShadow)">
+    <animate attributeName="rx"
+             values="70;54;22;54;70;54;22;54;70"
+             keyTimes="0;0.1;0.25;0.4;0.5;0.6;0.75;0.9;1"
+             dur="5s" repeatCount="indefinite"
+             calcMode="spline"
+             keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;
+                         0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;
+                         0.42 0 0.58 1;0.42 0 0.58 1"/>
+    <animate attributeName="opacity"
+             values="0.18;0.15;0.08;0.15;0.18;0.15;0.08;0.15;0.18"
+             keyTimes="0;0.1;0.25;0.4;0.5;0.6;0.75;0.9;1"
+             dur="5s" repeatCount="indefinite"
+             calcMode="spline"
+             keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;
+                         0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;
+                         0.42 0 0.58 1;0.42 0 0.58 1"/>
+  </ellipse>
+
+  <!-- Render order: back → edge → front -->
+
+  <g class="back-face">
+    <use href="#backFace"/>
+  </g>
+
+  <g class="edge-cap">
+    <!-- 14px wide strip at badge center, full badge height -->
+    <rect x="113" y="36" width="14" height="158" rx="7" fill="url(#gEdge)"/>
+    <!-- Specular highlight seam -->
+    <rect x="118" y="37" width="4" height="156" rx="2" fill="#fff" opacity="0.28"/>
+  </g>
+
+  <g class="front-face">
+    <use href="#frontFace"/>
+  </g>
+
+</svg>

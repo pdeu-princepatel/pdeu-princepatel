@@ -24,7 +24,7 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/prince-patel-844625282" target="_blank">
-    <img src="./linkedin_cube.svg" alt="Prince Patel — 3D Rotating ASCII LinkedIn Profile" width="380" />
+    <img src="./linkedin_3d_rotating.svg" alt="Prince Patel — 3D Rotating LinkedIn Profile" width="120" />
   </a>
 </p>
 
