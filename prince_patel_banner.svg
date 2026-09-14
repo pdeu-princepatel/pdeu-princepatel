@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="350" viewBox="0 0 800 350">
+  <title>PRINCE PATEL — Backend Developer Terminal Banner</title>
+  <desc>Animated terminal boot sequence that resolves into PRINCE PATEL ASCII art.</desc>
+  <style>
+    text {
+      font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+      font-weight: 600;
+    }
+    .dim { fill:#006b50; }
+    .mid { fill:#00b879; }
+    .bright { fill:#00ff9c; }
+  </style>
+
+  <!-- Transparent background: no rect -->
+
+  <!-- Ambient terminal cursor / status marker -->
+  <g class="mid" opacity="0.55">
+    <text x="42" y="32" font-size="13">root@backend:~$</text>
+    <rect x="153" y="20" width="7" height="15" fill="#00b879">
+      <animate attributeName="opacity" values="0;1;0" dur="0.9s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Boot log sequence -->
+  <g font-size="14">
+    <text x="42" y="62" class="dim" opacity="0">[ OK ] Initializing backend services...
+      <set attributeName="opacity" to="1" begin="0.10s"/>
+    </text>
+    <text x="42" y="84" class="mid" opacity="0">[ OK ] Connecting to database... connected
+      <set attributeName="opacity" to="1" begin="0.32s"/>
+    </text>
+    <text x="42" y="106" class="dim" opacity="0" xml:space="preserve">[ OK ] Loading modules [==========&amp;gt;        ] 68%
+      <set attributeName="opacity" to="1" begin="0.54s"/>
+    </text>
+    <text x="42" y="128" class="mid" opacity="0">[ OK ] Starting API gateway... listening :8080
+      <set attributeName="opacity" to="1" begin="0.76s"/>
+    </text>
+    <text x="42" y="150" class="bright" opacity="0">[ OK ] Service ready. Handshake complete.
+      <set attributeName="opacity" to="1" begin="0.98s"/>
+    </text>
+  </g>
+
+  <!-- Final ASCII name -->
+  <g class="bright" font-size="22" text-anchor="start">
+    <text x="103.0" y="195" opacity="0" xml:space="preserve">██████╗&#160;██████╗&#160;██╗███╗&#160;&#160;&#160;██╗&#160;██████╗███████╗<set attributeName="opacity" to="1" begin="1.05s" fill="freeze"/></text>
+    <text x="103.0" y="220" opacity="0" xml:space="preserve">██╔══██╗██╔══██╗██║████╗&#160;&#160;██║██╔════╝██╔════╝<set attributeName="opacity" to="1" begin="1.16s" fill="freeze"/></text>
+    <text x="103.0" y="245" opacity="0" xml:space="preserve">██████╔╝██████╔╝██║██╔██╗&#160;██║██║&#160;&#160;&#160;&#160;&#160;█████╗&#160;&#160;<set attributeName="opacity" to="1" begin="1.27s" fill="freeze"/></text>
+    <text x="103.0" y="270" opacity="0" xml:space="preserve">██╔═══╝&#160;██╔══██╗██║██║╚██╗██║██║&#160;&#160;&#160;&#160;&#160;██╔══╝&#160;&#160;<set attributeName="opacity" to="1" begin="1.38s" fill="freeze"/></text>
+    <text x="103.0" y="295" opacity="0" xml:space="preserve">██║&#160;&#160;&#160;&#160;&#160;██║&#160;&#160;██║██║██║&#160;╚████║╚██████╗███████╗<set attributeName="opacity" to="1" begin="1.49s" fill="freeze"/></text>
+    <text x="103.0" y="320" opacity="0" xml:space="preserve">╚═╝&#160;&#160;&#160;&#160;&#160;╚═╝&#160;&#160;╚═╝╚═╝╚═╝&#160;&#160;╚═══╝&#160;╚═════╝╚══════╝<set attributeName="opacity" to="1" begin="1.6s" fill="freeze"/></text>
+  </g>
+
+  <!-- Clean, readable name label locks in after ASCII resolves -->
+  <text x="400" y="337" text-anchor="middle" font-size="12" letter-spacing="5" class="mid" opacity="0">PRINCE PATEL // System Designer &amp; Backend Developer
+    <set attributeName="opacity" to="1" begin="1.85s" fill="freeze"/>
+  </text>
+</svg>
