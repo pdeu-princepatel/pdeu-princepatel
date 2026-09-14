@@ -51,17 +51,12 @@
 
 ## 🏆 Contribution
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/pdeu-princepatel/pdeu-princepatel/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/pdeu-princepatel/pdeu-princepatel/output/github-contribution-grid-snake.svg" />
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/pdeu-princepatel/pdeu-princepatel/output/github-contribution-grid-snake.svg" />
-</picture>
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pdeu-princepatel/pdeu-princepatel/output/contribution-drop.svg" alt="contribution drop animation" />
+</p>
 <p align="center">
   <img src="https://img.shields.io/badge/Contributed%20to-PyShell-blue?style=for-the-badge&logo=github" />
 </p>
 
 ---
 ![Profile Views](https://komarev.com/ghpvc/?username=pdeu-princepatel&color=blue)
-
-![disee.xyz live latency](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/badges/disee-latency.json)

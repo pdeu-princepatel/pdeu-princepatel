@@ -1,0 +1,36 @@
+name: generate contribution drop animation
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # once a day
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate SVG
+        run: node scripts/generate.js ${{ github.repository_owner }} contribution-drop.svg
+
+      - name: Commit to output branch
+        run: |
+          mkdir -p dist
+          cp contribution-drop.svg dist/
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan output-tmp
+          git rm -rf . > /dev/null 2>&1 || true
+          cp dist/contribution-drop.svg .
+          git add contribution-drop.svg
+          git commit -m "chore: update contribution drop animation"
+          git branch -D output 2>/dev/null || true
+          git branch -m output
+          git push -f origin output
