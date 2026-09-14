@@ -51,7 +51,7 @@
   </g>
 
   <!-- Clean, readable name label locks in after ASCII resolves -->
-  <text x="400" y="337" text-anchor="middle" font-size="12" letter-spacing="5" class="mid" opacity="0">PRINCE PATEL // System Designer &amp; Backend Developer
+  <text x="400" y="337" text-anchor="middle" font-size="12" letter-spacing="5" class="mid" opacity="0">System Designer &amp; BACKEND Engineer
     <set attributeName="opacity" to="1" begin="1.85s" fill="freeze"/>
   </text>
 </svg>
